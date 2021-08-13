@@ -1,6 +1,7 @@
 package io.emelceledonio.avatarpracticetest.Controller;
 
 import io.emelceledonio.avatarpracticetest.Entity.Pokemon;
+import io.emelceledonio.avatarpracticetest.Entity.PokemonData;
 import io.emelceledonio.avatarpracticetest.Service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,10 @@ public class PokemonController {
 
     @GetMapping("/pokemons")
     public String index(Model model) throws IOException, InterruptedException {
+        var object = pokemonService.getJsonBodyAPIData();
 
-        model.addAttribute("pokemon", new Pokemon());
-        model.addAttribute("pokemons", pokemonService.getApiData());
+        model.addAttribute("pokemon", new PokemonData());
+        model.addAttribute("pokemons",object);
         return "index";
     }
 }

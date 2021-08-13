@@ -1,5 +1,7 @@
 package io.emelceledonio.avatarpracticetest.Entity;
 
+import java.util.ArrayList;
+
 public class Pokemon {
 
     String name;
